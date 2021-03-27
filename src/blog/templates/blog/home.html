@@ -1,0 +1,262 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% if title %}
+    <title>مدونة | {{title}}</title>
+    {% else %}
+    <title>مدونة</title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+    <link rel="shortcut icon" href="{% static 'blog/images/favicon.ico' %}">
+</head>
+
+<body>
+
+    <header>
+        <!--Start Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'blog/images/mim-logo.png' %}" alt="شعار مدونة" width="30px">
+                مدونة</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'homepages1' %}">الرئيسية <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'home' %}">مدونة <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            دوراتي
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item"
+                                href="#">دورة
+                                تقوية</a>
+                            <a class="dropdown-item"
+                                href="#">دورة
+                                محادثة</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item"
+                                href="#">دورة
+                                نظام إدارة التعلم</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">من أنا</a>
+                    </li>
+                </ul>
+
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'new_post' %}">تدوينة جديدة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">الملف الشخصي</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">تسجيل خروج</a></li>
+                </ul>
+                {% else %}
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">تسجيل دخول</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">تسجيل</a></li>
+                </ul>
+                {% endif %}
+
+
+            </div>
+        </nav>
+        <!--End Navbar-->
+    </header>
+
+<main>
+    <div class="bd-masthead mb-3" id="content">
+  <div class="container px-4 px-md-3">
+    <div class="row align-items-lg-center">
+
+      <div class="col-md-12 order-md-1 col-lg-12 text-center text-md-start">
+        <h1 class="mb-3">الكمال للترجمة</h1>
+        <p class="lead mb-4">
+            شركة الكمال لدورات التقوية والمحادثة 
+            والترجمة والتصديقوالسير الذاتية 
+            اطلب الخدمة 
+            لسنا الوحيدين ولكننا الافضل
+        </p>
+
+        <div class="d-flex flex-column flex-md-row">
+            
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col ml-5 mr-5">
+                  <div class="card">
+                    <img src="{% static 'blog/images/post1.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">AL KAMAL English Courses</h5>
+                      <p class="card-text">click on Courses to pay our Services</p>
+                      <a href="" class="btn btn-lg btn-primary mb-3 me-md-3 ml-1" >Courses</a>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col mr-5">
+                  <div class="card">
+                    <img src="{% static 'blog/images/post2.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">AL KAMAL Translation</h5>
+                      <p class="card-text">click on Translation to pay</p>
+                      <a href="" class="btn btn-lg btn-outline-secondary mb-3" >Translation</a>
+
+                    </div>
+                  </div>
+                </div>
+        </div>
+
+      </div>
+      <div class="col mt-2">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text"><strong>v1.0.0-beta0</strong>
+                حاليا 
+                <span class="px-1">·</span>
+                <a href="#" class="link-secondary">v0.0.1 docs</a>
+                <span class="px-1">·</span>
+                <a href="#" class="link-secondary">جميع الإصدارات</a>
+              </p>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <div class="container masthead-followup px-4 px-md-3">
+  <section class="row mb-5 pb-md-4 align-items-center">
+
+  </section>
+
+
+
+  <section class="row mb-5 pb-md-4 align-items-center">
+    <div class="col-md-5">
+      <div class="masthead-followup-icon d-inline-block mb-2 text-white bg-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" focusable="false" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M3.5 13a3.5 3.5 0 11.59-6.95 5.002 5.002 0 119.804 1.98A2.5 2.5 0 0113.5 13h-10z" clip-rule="evenodd"></path>
+</svg>
+
+      </div>
+      <h2 class="display-5 fw-normal">Quality Control</h2>
+      <p class="lead fw-normal">
+        1. Coordination: We assess your requirements to prepare the quotation and strategically allocate the assignment based on the type of text and the desired deadline.
+
+        2. Translation: We work with the newest tools and resources, and seek advice from our internal terminologists and technical specialists for accurate specialized translation.
+        
+          </p>
+      <p>
+        3. Linguistic Revision: Translated texts are revised to ensure that your intended message is conveyed correctly to the targeted readers.
+
+      </p>
+      <a href="https://icons.getbootstrap.com/" class="btn btn-lg btn-outline-primary mb-3">Get Bootstrap Icons</a>
+    </div>
+    <div class="col-md-7 ps-md-5">
+        <img class="img-fluid mt-3 mx-auto"  src="{% static 'blog/images/post3.jpg' %}" alt="Quality Control" width="700" height="425" loading="lazy">
+    </div>
+  </section>
+
+  <section class="row mb-5 pb-md-4 align-items-center">
+    <div class="col-md-5">
+      <div class="masthead-followup-icon d-inline-block mb-2 text-white bg-danger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" focusable="false" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 16a6 6 0 006-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 006 6zM6.646 4.646c-.376.377-1.272 1.489-2.093 3.13l.894.448c.78-1.559 1.616-2.58 1.907-2.87l-.708-.708z" clip-rule="evenodd"></path>
+</svg>
+
+      </div>
+      <h2 class="display-5 fw-normal">Services</h2>
+      <p class="lead fw-normal">
+        We translate between English and Arabic primarily in education, literature, contracts, and legal and governmental documents.
+        <a href="https://themes.getbootstrap.com/">official Bootstrap Themes marketplace</a>.
+      </p>
+      <p>
+        Themes are built on Bootstrap as their own extended frameworks, rich with new components and plugins, documentation, and powerful build tools.
+      </p>
+      <a href="https://themes.getbootstrap.com/" class="btn btn-lg btn-outline-primary mb-3">Browse themes</a>
+    </div>
+    <div class="col-md-7 ps-md-5">
+        <img class="img-fluid mt-3 mx-auto" src="{% static 'blog/images/post2.jpg' %}" alt="Services" width="700" height="500" loading="lazy">
+    </div>
+  </section>
+</div>
+
+  </main>
+
+  <footer class="bg-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md">
+                <div class="card-group mt-3">
+                    <div class="card m-3">
+                        <h3 class="card-title text-center border-bottom p-2 m-3">من نحن</h3>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="{% static 'blog/images/mim-logo.png' %}" alt="شعار مدونة" width="100px">
+                            </div>
+                            <p>
+                                شركة الكمال للترجمة <br>
+                                Mobile: +963 993 599 622 (Syria) <br>
+                                Email: info@alkamaltranslation.com
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="card m-3">
+                        <h3 class="card-title text-center border-bottom p-2 m-3">مواقع هامة</h3>
+                        <div class="card-body">
+                            <ul>
+                                <li><a class="text-dark" href="https://www.python.org/doc/">وثائق بايثون</a></li>
+                                <li><a class="text-dark" href="https://docs.djangoproject.com/en/2.2/">وثائق
+                                        دجانجو</a></li>
+                                <li><a class="text-dark" href="https://developer.mozilla.org/">توثيق MDN</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card m-3">
+                        <h3 class="card-title text-center border-bottom p-2 m-3">وسائل التواصل الاجتماعي</h3>
+                        <h4 class="card-body text-center">
+                            <a class="text-secondary" href="https://www.facebook.com/alkamaltranslation"><i class="fab fa-facebook"></i></a>
+                            <a class="text-secondary" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="text-secondary" href="https://www.instagram.com/alkamaltranslation/"><i class="fab fa-instagram"></i></a>
+                            <a class="text-secondary" href="#"><i class="fab fa-youtube"></i></a>
+                            <a class="text-secondary" href="#"><i class="fab fa-telegram"></i></a>
+                            <a class="text-secondary" href="#"><i class="fab fa-linkedin"></i></a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-md text-center">
+                <small class="text-light">&copy; جميع الحقوق محفوظة {% now 'Y' %}</small>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
+<script src="{% static 'blog/js/popper.min.js' %}"></script>
+<script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
+
+</body>
+
+</html>
